@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">예약 정보</h5>
+        <p class="card-text">예약자 : {{object.p_name}}</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">시작시간 : {{object.start_date|date:'Y-m-d h:m'}}</li>
+            <li class="list-group-item">종료시간 : {{object.end_date|date:'Y-m-d h:m'}}</li>
+            <li class="list-group-item">이용인원 : {{object.people}}</li>
+        </ul>
+        <li class="list-group-item">
+            <a href="{% url 'reservation:update' object.id %}" class="card-link">수정</a>
+            <a href="{% url 'reservation:delete' object.id %}" class="card-link float-right">삭제</a>
+        </li>
+    </div>
+</div>
+{% endblock %}
