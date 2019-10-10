@@ -3,19 +3,27 @@
 {% block title %}{% endblock %}
 
 {% block content %}
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">예약 정보</h5>
-        <p class="card-text">예약자 : {{object.p_name}}</p>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">시작시간 : {{object.start_date|date:'Y-m-d h:m'}}</li>
-            <li class="list-group-item">종료시간 : {{object.end_date|date:'Y-m-d h:m'}}</li>
-            <li class="list-group-item">이용인원 : {{object.people}}</li>
-        </ul>
-        <li class="list-group-item">
-            <a href="{% url 'reservation:update' object.id %}" class="card-link">수정</a>
-            <a href="{% url 'reservation:delete' object.id %}" class="card-link float-right">삭제</a>
-        </li>
+<section class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col">
+                <div class="post-entry">
+                    <div class="body-text">
+                        <h3 class="mb-3"><a href="blog-single.html">예약 정보</a></h3>
+                        <p class="card-text">예약자 : {{object.p_name}}</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">시작시간 : {{object.start_date|date:'Y-m-d h:m'}}</li>
+                            <li class="list-group-item">종료시간 : {{object.end_date|date:'Y-m-d h:m'}}</li>
+                            <li class="list-group-item">이용인원 : {{object.people}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="mt-3">
+                    <a href="{% url 'reservation:update' object.id %}" class="btn btn-primary btn-outline-primary btn-sm float-right">수정</a>
+                    <a href="{% url 'reservation:delete' object.id %}" class="btn btn-primary btn-outline-primary btn-sm float-right mr-3">삭제</a>
+                </p>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 {% endblock %}

@@ -3,9 +3,24 @@
 {% block title %}{% endblock %}
 
 {% block content %}
-<form method="post" action=".">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="예약하기">
-</form>
+<section class="site-section">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="mb-5">Reservation Form</h2>
+                <form action="#" method="post">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <form method="post" action="." id='arrival_date'>
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input type="submit" value="예약하기" class="btn btn-primary">
+                            </form>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
