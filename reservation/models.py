@@ -23,6 +23,7 @@ class Reservation(models.Model):
     status = models.SmallIntegerField(choices=STATUS, default=WAITING)
     created = models.DateTimeField(auto_now_add=True)
     updated_datetime = models.DateTimeField(auto_now=True)
+    password = models.CharField(max_length=30)
 
     def get_absolute_url(self):
         # detail/<int:pk>/

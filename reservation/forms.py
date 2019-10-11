@@ -1,11 +1,13 @@
 from django import forms
 from .models import Reservation
 
+class ReservationPasswordForm(forms.Form):
+    password = forms.CharField(widget=forms.PasswordInput)
 
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
-        fields = ['user', 'p_name', 'start_date', 'end_date', 'people']
+        fields = ['user', 'p_name', 'start_date', 'end_date', 'people', 'password']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -23,3 +25,6 @@ class ReservationForm(forms.ModelForm):
 
         self.fields['people'].label = "인원"
         self.fields['people'].widget.attrs = {'class': "form-control", 'placeholder': ""}
+
+        self.fields['password'].label = "비밀번호"
+        self.fields['password'].widget = forms.PasswordInput()
